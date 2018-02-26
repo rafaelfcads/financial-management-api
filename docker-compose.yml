@@ -1,20 +1,17 @@
-version: '2'
+version: "2"
 services:
-  financial_api:
+  app:
+    container_name: app
+    restart: always
     build: .
-    context: .
-    dockerfile: ./Dockerfile
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
     ports:
-      - "8081:8081"
-    depends_on:
-      - mongodb
-    environment:
-      DATABASE_URL: mongodb://localhost:27017/financial
-  mongodb:
+      - "3000:3000"
+    links:
+      - mongo
+  mongo:
+    container_name: mongo_financial
     image: mongo
-    environment:
-      MONGO_USER: admin
-      MONGO_DB: financial
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
