@@ -24,6 +24,10 @@
     "require": [
       "ts-node/register"
     ],
+    "reporter": [
+      "html",
+      "text"
+    ],
     "all": true
   },
   "dependencies": {
