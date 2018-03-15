@@ -4,7 +4,7 @@ import { AccountModule } from './account/account.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/financial'),
+    MongooseModule.forRoot('mongodb://mongo:27017/financial'),
     AccountModule
   ]
 })
